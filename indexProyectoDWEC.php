@@ -45,11 +45,6 @@
                                 <i class="fa-solid fa-file-pdf"></i> Teoría del BOM
                             </a>
                         </li>
-                        <li>
-                            <a href="doc/EjemplosWindow.html" target="_blank">
-                                <i class="fa-solid fa-code"></i> Ejemplos Objeto Window
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </article>
@@ -80,7 +75,7 @@
                     <span class="nombre-tema">Comunicación Asíncrona (AJAX)</span>
                     <ul class="lista-ejercicios">
                         <li>
-                            <a href="proyectos/perfiles-usuarios/index.html" target="_blank">
+                            <a href="/ENLDWECAppGeneradorUsuarios/index.html" target="_blank">
                                 <i class="fa-solid fa-infinity"></i> App Perfiles (Scroll Infinito)
                             </a>
                         </li>
