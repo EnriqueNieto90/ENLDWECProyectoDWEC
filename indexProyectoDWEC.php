@@ -41,8 +41,13 @@
                     <span class="nombre-tema">Browser Object Model (BOM)</span>
                     <ul class="lista-ejercicios">
                         <li>
-                            <a href="doc/TeoriaBOM.pdf" target="_blank">
-                                <i class="fa-solid fa-file-pdf"></i> Teoría del BOM
+                            <a href="doc/Funcionamiento_Navegador_Web.pdf" target="_blank">
+                                <i class="fa-solid fa-file-pdf"></i> Funcionamiento Navegador Web
+                            </a>
+                        </li>
+                        <li>
+                            <a href="doc/BrowserObjectModel.html" target="_blank">
+                                <i class="fa-brands fa-markdown"></i> Teoría del BOM
                             </a>
                         </li>
                     </ul>
