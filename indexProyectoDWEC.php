@@ -102,7 +102,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="doc/pintarLienzo.html" target="_blank">
+                            <a href="doc/editorRGB.html" target="_blank">
                                 <i class="fa-solid fa-sliders"></i> Editor RGB de Imagen
                             </a>
                         </li>

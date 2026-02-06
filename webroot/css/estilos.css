@@ -1,13 +1,33 @@
+/*Canvas*/
 main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        canvas {
-            background-color: white;
-            border: 2px solid black;
-            /* cursor: crosshair; */
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+canvas {
+    background-color: white;
+    border: 2px solid black;
+    /* cursor: crosshair; */
+}
+
+/*Editor RGB*/
+main {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+canvas {
+    border: 2px solid #333;
+    background: white;
+    margin-top: 10px;
+}
+.controles {
+    margin: 20px;
+}
+label {
+    font-weight: bold;
+    margin-right: 10px;
+}
