@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Lienzo de Pintura | Enrique Nieto</title>
+        <link rel="stylesheet" href="../webroot/css/estilos.css">
+        <link rel="stylesheet" href="../webroot/css/fonts.css">
+        <link rel="stylesheet" href="../webroot/css/all.min.css">
+        <link rel="stylesheet" href="../webroot/css/styles.css">
+    </head>
+
+    <body>
+        <header class="cabecera-principal">
+            <div class="contenido-cabecera">
+                <div class="identidad">
+                    <a href="../indexProyectoDWEC.php">
+                        <div class="logo-iniciales">EN</div>
+                    </a>
+                    <h1>Lienzo para Pintar</h1>
+                </div>
+                <div class="curso-badge">DWEC</div>
+            </div>
+        </header>
+        <main class="contenedor-principal">
+            <h2 class="titulo-pagina">Canvas para Pintar</h2>
+
+            <canvas id="miCanvas" width="1200" height="1000"></canvas>
+
+            <script>
+                const canvas = document.getElementById('miCanvas');
+                const ctx = canvas.getContext('2d');
+
+                // Configuración fija del pincel
+                ctx.lineWidth = 3;       // Grosor de la línea
+                ctx.strokeStyle = "black"; // Color de la línea
+                ctx.lineCap = "round";   // Bordes redondeados
+
+                // Función auxiliar que dibuja
+                function pintar(event) {
+                    ctx.lineTo(event.offsetX, event.offsetY);
+                    ctx.stroke();
+                }
+
+                // AL PULSAR EL RATÓN
+                canvas.addEventListener('mousedown', (event) => {
+                    ctx.beginPath(); // Rompe la unión con la línea anterior
+                    ctx.moveTo(event.offsetX, event.offsetY); // Mueve el lápiz sin pintar
+
+                    // Aquí activamos el evento de movimiento
+                    canvas.addEventListener('mousemove', pintar);
+                });
+
+                // // AL SOLTAR EL RATÓN
+                canvas.addEventListener('mouseup', () => {
+                    // Aquí desactivamos el evento de movimiento
+                    canvas.removeEventListener('mousemove', pintar);
+                });
+
+                // Si el ratón sale del canvas
+                canvas.addEventListener('mouseleave', () => {
+                    canvas.removeEventListener('mousemove', pintar);
+                });
+
+            </script>
+        </main>
+
+        <footer class="pie-pagina">
+            <div class="contenido-footer">
+                <div class="texto-legal">
+                    <p>2025-26 IES LOS SAUCES. ©Todos los derechos reservados.</p>
+                    <p class="autor">Enrique Nieto Lorenzo. Fecha de Actualización: 18-01-2026</p>
+                </div>
+
+                <div id="contenedor-reloj-footer"></div>
+
+                <div class="iconos-footer">
+                    <a href="https://github.com/EnriqueNieto90/ENLDWECProyectoSopaDeLetras/tree/developerENL" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="../../index.html" title="Inicio"><i class="fa-solid fa-house"></i></a>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+
+</html>

@@ -87,6 +87,28 @@
                     </ul>
                 </div>
             </article>
+            
+            <article class="tarjeta tarjeta-tema">
+                <div class="tarjeta-imagen fondo-js">
+                    <i class="fa-solid fa-palette"></i>
+                </div>
+                <div class="tarjeta-contenido">
+                    <span class="siglas">Tema 4</span>
+                    <span class="nombre-tema">Gráficos Web (API Canvas)</span>
+                    <ul class="lista-ejercicios">
+                        <li>
+                            <a href="doc/pintarLienzo.html" target="_blank">
+                                <i class="fa-solid fa-paintbrush"></i> App Lienzo de Pintura
+                            </a>
+                        </li>
+                        <li>
+                            <a href="doc/pintarLienzo.html" target="_blank">
+                                <i class="fa-solid fa-sliders"></i> Editor RGB de Imagen
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </article>
 
         </div>
 
