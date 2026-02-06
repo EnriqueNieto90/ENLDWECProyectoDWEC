@@ -41,8 +41,13 @@
                     <span class="nombre-tema">Browser Object Model (BOM)</span>
                     <ul class="lista-ejercicios">
                         <li>
-                            <a href="doc/TeoriaBOM.pdf" target="_blank">
-                                <i class="fa-solid fa-file-pdf"></i> Teoría del BOM
+                            <a href="doc/Funcionamiento_Navegador_Web.pdf" target="_blank">
+                                <i class="fa-solid fa-file-pdf"></i> Funcionamiento Navegador Web
+                            </a>
+                        </li>
+                        <li>
+                            <a href="doc/BrowserObjectModel.html" target="_blank">
+                                <i class="fa-brands fa-markdown"></i> Teoría del BOM
                             </a>
                         </li>
                     </ul>
@@ -77,6 +82,28 @@
                         <li>
                             <a href="/ENLDWECAppGeneradorUsuarios/index.html" target="_blank">
                                 <i class="fa-solid fa-infinity"></i> App Perfiles (Scroll Infinito)
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+            
+            <article class="tarjeta tarjeta-tema">
+                <div class="tarjeta-imagen fondo-js">
+                    <i class="fa-solid fa-palette"></i>
+                </div>
+                <div class="tarjeta-contenido">
+                    <span class="siglas">Tema 4</span>
+                    <span class="nombre-tema">Gráficos Web (API Canvas)</span>
+                    <ul class="lista-ejercicios">
+                        <li>
+                            <a href="doc/pintarLienzo.html" target="_blank">
+                                <i class="fa-solid fa-paintbrush"></i> App Lienzo de Pintura
+                            </a>
+                        </li>
+                        <li>
+                            <a href="doc/editorRGB.html" target="_blank">
+                                <i class="fa-solid fa-sliders"></i> Editor RGB de Imagen
                             </a>
                         </li>
                     </ul>

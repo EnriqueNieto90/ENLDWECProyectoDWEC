@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>BOM &lpar;Browser Object Model&rpar;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="bom-browser-object-model">BOM (Browser Object Model)</h1>
+<p>El BOM representa la jerarquía de objetos que controlan el navegador, independientemente del contenido de la página web.</p>
+<h2 id="window"><code>window</code></h2>
+<p>El objeto <code>window</code> es el objeto global principal en el entorno del navegador. Todas las demás propiedades y objetos (incluyendo <code>document</code>, <code>history</code>, <code>console</code>, etc.) son, en última instancia, propiedades de <code>window</code>.</p>
+<ul>
+<li><strong>Propiedades:</strong>
+<ul>
+<li><code>outerHeight</code>: Devuelve la altura de la ventana del navegador, incluyendo barras de herramientas/desplazamiento.</li>
+<li><code>outerWidth</code>: Devuelve la anchura de la ventana del navegador, incluyendo barras de herramientas/desplazamiento.</li>
+<li><code>pageXOffset</code>: Devuelve los píxeles que el documento actual se ha desplazado (horizontalmente) desde la esquina superior izquierda de la ventana.</li>
+<li><code>pageYOffset</code>: Devuelve los píxeles que el documento actual se ha desplazado (verticalmente) desde la esquina superior izquierda de la ventana.</li>
+<li><code>screenLeft</code>: Devuelve la coordenada horizontal de la ventana relativa a la pantalla.</li>
+<li><code>screenTop</code>: Devuelve la coordenada vertical de la ventana relativa a la pantalla.</li>
+<li><code>screenX</code>: Devuelve la coordenada horizontal de la ventana relativa a la pantalla.</li>
+<li><code>screenY</code>: Devuelve la coordenada vertical de la ventana relativa a la pantalla.</li>
+<li><code>sessionStorage</code>: Permite guardar pares clave/valor en un navegador web. Almacena los datos para una sesión.</li>
+<li><code>scrollX</code>: Un alias de <code>pageXOffset</code>.</li>
+<li><code>scrollY</code>: Un alias de <code>pageYOffset</code>.</li>
+<li><code>self</code>: Devuelve la ventana actual.</li>
+<li><code>top</code>: Devuelve la ventana superior del navegador.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="document-objeto-windowdocument"><code>document</code> (Objeto <code>window.document</code>)</h3>
+<p>Representa la página web cargada en el navegador. Todos los nodos y elementos HTML dentro de la página constituyen el <strong>DOM (Document Object Model)</strong>, que es la interfaz principal para manipular el contenido.</p>
+<ul>
+<li><strong>Propiedades:</strong>
+<ul>
+<li><code>activeElement</code>: Devuelve el elemento actualmente enfocado en el documento.</li>
+<li><code>baseURI</code>: Devuelve la URI base absoluta de un documento.</li>
+<li><code>body</code>: Establece o devuelve el cuerpo del documento (el elemento <code>&lt;body&gt;</code>).</li>
+<li><code>characterSet</code>: Devuelve la codificación de caracteres del documento.</li>
+<li><code>cookie</code>: Devuelve todos los pares nombre/valor de las cookies en el documento.</li>
+<li><code>defaultView</code>: Devuelve el objeto <code>window</code> asociado con un documento, o <code>null</code> si no hay ninguno disponible.</li>
+<li><code>designMode</code>: Controla si el documento completo debe ser editable o no.</li>
+<li><code>doctype</code>: Devuelve la Declaración de Tipo de Documento asociada con el documento.</li>
+<li><code>documentElement</code>: Devuelve el Elemento Raíz del documento (el elemento <code>&lt;html&gt;</code>).</li>
+<li><code>documentURI</code>: Establece o devuelve la ubicación del documento.</li>
+<li><code>domain</code>: Devuelve el nombre de dominio del servidor que cargó el documento.</li>
+<li><code>embeds</code>: Devuelve una colección de todos los elementos <code>&lt;embed&gt;</code> en el documento.</li>
+<li><code>forms</code>: Devuelve una colección de todos los elementos <code>&lt;form&gt;</code> en el documento.</li>
+<li><code>head</code>: Devuelve el elemento <code>&lt;head&gt;</code> del documento.</li>
+<li><code>images</code>: Devuelve una colección de todos los elementos <code>&lt;img&gt;</code> en el documento.</li>
+<li><code>implementation</code>: Devuelve el objeto DOMImplementation que maneja este documento.</li>
+<li><code>lastModified</code>: Devuelve la fecha y hora en que el documento fue modificado por última vez.</li>
+<li><code>links</code>: Devuelve una colección de todos los elementos <code>&lt;a&gt;</code> y <code>&lt;area&gt;</code> en el documento que tienen un atributo <code>href</code>.</li>
+<li><code>readyState</code>: Devuelve el estado (de carga) del documento.</li>
+<li><code>referrer</code>: Devuelve la URL del documento que cargó el documento actual.</li>
+<li><code>scripts</code>: Devuelve una colección de elementos <code>&lt;script&gt;</code> en el documento.</li>
+<li><code>title</code>: Establece o devuelve el título del documento.</li>
+<li><code>URL</code>: Devuelve la URL completa del documento HTML.</li>
+</ul>
+</li>
+<li><strong>Métodos:</strong>
+<ul>
+<li><code>addEventListener()</code>: Adjunta un manejador de eventos al documento.</li>
+<li><code>adoptNode()</code>: Adopta un nodo de otro documento.</li>
+<li><code>close()</code>: Cierra el flujo de salida previamente abierto con <code>document.open()</code>.</li>
+<li><code>createAttribute()</code>: Crea un nodo de atributo.</li>
+<li><code>createComment()</code>: Crea un nodo de Comentario con el texto especificado.</li>
+<li><code>createDocumentFragment()</code>: Crea un nodo DocumentFragment vacío.</li>
+<li><code>createElement()</code>: Crea un nodo de Elemento.</li>
+<li><code>createEvent()</code>: Crea un nuevo evento.</li>
+<li><code>createTextNode()</code>: Crea un nodo de Texto.</li>
+<li><code>getElementById()</code>: Devuelve el elemento que tiene el atributo ID con el valor especificado.</li>
+<li><code>getElementsByClassName()</code>: Devuelve una HTMLCollection que contiene todos los elementos con el nombre de clase especificado.</li>
+<li><code>getElementsByName()</code>: Devuelve una NodeList viva que contiene todos los elementos con el nombre especificado.</li>
+<li><code>getElementsByTagName()</code>: Devuelve una HTMLCollection que contiene todos los elementos con el nombre de etiqueta especificado.</li>
+<li><code>hasFocus()</code>: Devuelve un valor Booleano indicando si el documento tiene el foco.</li>
+<li><code>importNode()</code>: Importa un nodo de otro documento.</li>
+<li><code>normalize()</code>: Elimina nodos de Texto vacíos y une nodos adyacentes.</li>
+<li><code>open()</code>: Abre un flujo de salida HTML para recopilar la salida de <code>document.write()</code>.</li>
+<li><code>querySelector()</code>: Devuelve el primer elemento que coincide con un selector CSS especificado en el documento.</li>
+<li><code>querySelectorAll()</code>: Devuelve una NodeList estática que contiene todos los elementos que coinciden con un selector CSS especificado en el documento.</li>
+<li><code>removeEventListener()</code>: Elimina un manejador de eventos del documento (que ha sido adjuntado con el método <code>addEventListener()</code>).</li>
+<li><code>write()</code>: Escribe expresiones HTML o código JavaScript en un documento.</li>
+<li><code>writeln()</code>: Igual que <code>write()</code>, pero añade un carácter de nueva línea después de cada declaración.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="history-objeto-windowhistory"><code>history</code> (Objeto <code>window.history</code>)</h3>
+<p>Proporciona acceso al historial de navegación de la pestaña o marco actual.</p>
+<ul>
+<li><strong>Propiedades:</strong>
+<ul>
+<li><code>length</code>: Devuelve el número de URLs (páginas) en el historial.</li>
+</ul>
+</li>
+<li><strong>Métodos:</strong>
+<ul>
+<li><code>back()</code>: Carga la URL (página) anterior en el historial.</li>
+<li><code>forward()</code>: Carga la URL (página) siguiente en el historial.</li>
+<li><code>go()</code>: Carga una URL (página) específica del historial.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="location-objeto-windowlocation"><code>location</code> (Objeto <code>window.location</code>)</h3>
+<p>Contiene información sobre la URL actual de la página y proporciona métodos para navegar o recargar.</p>
+<ul>
+<li><strong>Propiedades:</strong>
+<ul>
+<li><code>hash</code>: Establece o devuelve la parte del ancla (#) de una URL.</li>
+<li><code>host</code>: Establece o devuelve el nombre de host y el número de puerto de una URL.</li>
+<li><code>hostname</code>: Establece o devuelve el nombre de host de una URL.</li>
+<li><code>href</code>: Establece o devuelve la URL completa.</li>
+<li><code>origin</code>: Devuelve el protocolo, el nombre de host y el número de puerto de una URL.</li>
+<li><code>pathname</code>: Establece o devuelve la ruta de una URL.</li>
+<li><code>port</code>: Establece o devuelve el número de puerto de una URL.</li>
+<li><code>protocol</code>: Establece o devuelve el protocolo de una URL.</li>
+</ul>
+</li>
+<li><strong>Métodos:</strong>
+<ul>
+<li><code>assign()</code>: Carga un nuevo documento.</li>
+<li><code>reload()</code>: Recarga el documento actual.</li>
+<li><code>replace()</code>: Reemplaza el documento actual por uno nuevo.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="screen-objeto-windowscreen"><code>screen</code> (Objeto <code>window.screen</code>)</h3>
+<p>Contiene información sobre las propiedades de la pantalla del usuario (monitor).</p>
+<ul>
+<li><strong>Propiedades:</strong>
+<ul>
+<li><code>availHeight</code>: Devuelve la altura de la pantalla (excluyendo la Barra de Tareas de Windows).</li>
+<li><code>availWidth</code>: Devuelve la anchura de la pantalla (excluyendo la Barra de Tareas de Windows).</li>
+<li><code>colorDepth</code>: Devuelve la profundidad de bits de la paleta de colores para mostrar imágenes.</li>
+<li><code>height</code>: Devuelve la altura total de la pantalla.</li>
+<li><code>pixelDepth</code>: Devuelve la resolución de color (en bits por píxel) de la pantalla.</li>
+<li><code>width</code>: Devuelve la anchura total de la pantalla.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="navigator-objeto-windownavigator"><code>navigator</code> (Objeto <code>window.navigator</code>)</h3>
+<p>Contiene información sobre el navegador (user-agent), el sistema operativo y las capacidades del cliente.</p>
+<ul>
+<li><strong>Propiedades:</strong>
+<ul>
+<li><code>cookieEnabled</code>: Devuelve <code>true</code> si las cookies del navegador están habilitadas.</li>
+<li><code>geolocation</code>: Devuelve un objeto de geolocalización para la ubicación del usuario.</li>
+<li><code>language</code>: Devuelve el idioma del navegador.</li>
+<li><code>onLine</code>: Devuelve <code>true</code> si el navegador está en línea.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="console-objeto-windowconsole"><code>console</code> (Objeto <code>window.console</code>)</h3>
+<p>Proporciona acceso a la consola de depuración del navegador, permitiendo registrar mensajes, errores, advertencias, etc.</p>
+<ul>
+<li><strong>Métodos:</strong>
+<ul>
+<li><code>assert()</code>: Escribe un mensaje de error en la consola si una afirmación es falsa.</li>
+<li><code>clear()</code>: Limpia la consola.</li>
+<li><code>count()</code>: Registra el número de veces que se ha llamado a esta llamada particular a <code>count()</code>.</li>
+<li><code>error()</code>: Muestra un mensaje de error en la consola.</li>
+<li><code>group()</code>: Crea un nuevo grupo en línea en la consola. Esto indenta los siguientes mensajes de la consola un nivel adicional, hasta que se llama a <code>console.groupEnd()</code>.</li>
+<li><code>groupCollapsed()</code>: Crea un nuevo grupo en línea en la consola. Sin embargo, el nuevo grupo se crea colapsado. El usuario deberá usar el botón de despliegue para expandirlo.</li>
+<li><code>groupEnd()</code>: Sale del grupo en línea actual en la consola.</li>
+<li><code>info()</code>: Muestra un mensaje informativo en la consola.</li>
+<li><code>log()</code>: Muestra un mensaje en la consola.</li>
+<li><code>table()</code>: Muestra datos tabulares como una tabla.</li>
+<li><code>time()</code>: Inicia un temporizador (puede rastrear cuánto tiempo tarda una operación).</li>
+<li><code>timeEnd()</code>: Detiene un temporizador que fue iniciado previamente por <code>console.time()</code>.</li>
+<li><code>trace()</code>: Muestra un seguimiento de la pila (stack trace) en la consola.</li>
+<li><code>warn()</code>: Muestra un mensaje de advertencia en la consola.</li>
+</ul>
+</li>
+</ul>
+
+            
+            
+        </body>
+        </html>

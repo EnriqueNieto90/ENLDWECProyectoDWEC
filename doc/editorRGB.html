@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Editor RGB | Enrique Nieto</title>
+        <link rel="stylesheet" href="../webroot/css/estilos.css">
+        <link rel="stylesheet" href="../webroot/css/fonts.css">
+        <link rel="stylesheet" href="../webroot/css/all.min.css">
+        <link rel="stylesheet" href="../webroot/css/styles.css">
+    </head>
+
+    <body>
+        <header class="cabecera-principal">
+            <div class="contenido-cabecera">
+                <div class="identidad">
+                    <a href="../indexProyectoDWEC.php">
+                        <div class="logo-iniciales">EN</div>
+                    </a>
+                    <h1>Editor RGB</h1>
+                </div>
+                <div class="curso-badge">DWEC</div>
+            </div>
+        </header>
+        <main class="contenedor-principal">
+            <h2 class="titulo-pagina">Editor RGB</h2>
+
+            <canvas id="miCanvas" width="400" height="300"></canvas>
+
+            <div class="controles">
+                <p>
+                    <label style="color: red;">Rojo</label>
+                    <input type="range" id="rojo" min="-100" max="100" value="0" oninput="aplicarFiltro()">
+                </p>
+                <p>
+                    <label style="color: green;">Verde</label>
+                    <input type="range" id="verde" min="-100" max="100" value="0" oninput="aplicarFiltro()">
+                </p>
+                <p>
+                    <label style="color: blue;">Azul</label>
+                    <input type="range" id="azul" min="-100" max="100" value="0" oninput="aplicarFiltro()">
+                </p>
+            </div>
+
+            <script>
+                const canvas = document.getElementById("miCanvas");
+                const ctx = canvas.getContext("2d");
+
+                let datosOriginales = null;
+                let imagenData = null;
+
+                // Cargar la imagen
+                const img = new Image();
+                img.crossOrigin = "Anonymous";
+                img.src = "https://picsum.photos/400/300";
+
+                img.onload = function () {
+                    ctx.drawImage(img, 0, 0);
+                    // Guardar los píxeles originales
+                    imagenData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                    datosOriginales = new Uint8ClampedArray(imagenData.data);
+                };
+
+                // Función para aplicar el color
+                function aplicarFiltro() {
+                    if (!datosOriginales)
+                        return;
+
+                    // Obtener valores de los sliders
+                    const r = parseInt(document.getElementById("rojo").value);
+                    const g = parseInt(document.getElementById("verde").value);
+                    const b = parseInt(document.getElementById("azul").value);
+
+                    const pixeles = imagenData.data;
+
+                    // Recorrer el array de píxeles
+                    for (let i = 0; i < pixeles.length; i += 4) {
+                        // Sumamos el valor del slider al color original
+                        pixeles[i] = datosOriginales[i] + (r * 2.5); // Rojo
+                        pixeles[i + 1] = datosOriginales[i + 1] + (g * 2.5); // Verde
+                        pixeles[i + 2] = datosOriginales[i + 2] + (b * 2.5); // Azul
+                    }
+
+                    // Actualizar el canvas con los nuevos colores
+                    ctx.putImageData(imagenData, 0, 0);
+                }
+            </script>
+        </main>
+
+        <footer class="pie-pagina">
+            <div class="contenido-footer">
+                <div class="texto-legal">
+                    <p>2025-26 IES LOS SAUCES. ©Todos los derechos reservados.</p>
+                    <p class="autor">Enrique Nieto Lorenzo. Fecha de Actualización: 18-01-2026</p>
+                </div>
+
+                <div id="contenedor-reloj-footer"></div>
+
+                <div class="iconos-footer">
+                    <a href="https://github.com/EnriqueNieto90/ENLDWECProyectoDWEC" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="../../index.html" title="Inicio"><i class="fa-solid fa-house"></i></a>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+
+</html>
